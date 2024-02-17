@@ -7,9 +7,15 @@ readme = "README.md"
 packages = [{include = "valentine_days"}]
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "3.11.8"
+auto-py-to-exe = "^2.42.0"
+poethepoet = "^0.24.4"
 
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.poe.tasks.build]
+shell = """ pyinstaller.exe --noconfirm --onefile --windowed --icon "C:/Users/Guilherme/Desktop/valentine-days/icons/dia-dos-namorados.ico" --add-data "C:/Users/Guilherme/Desktop/valentine-days/icons/dia-dos-namorados.ico;."  "C:/Users/Guilherme/Desktop/valentine-days/main.py" """
